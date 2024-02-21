@@ -4,7 +4,7 @@ Tässä harjoituksessa on tarkoitus tutustua piirtämiseen Paint()-metodissa ja 
 
 Aloita lisämäällä Paint -tapahtuma lomakkeelle vrt click -event. 
 
-  ![paintandmouse01](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/11_PointAndMouse/kuvat/PaintAndMouse01.png)
+  ![paintandmouse01](kuvat/PaintAndMouse01.png)
   
   Kuva 1. Tikku-ukko 
   
@@ -98,7 +98,7 @@ Napin painamis metodin loppuun lisää siis kutsu:
 Invalidate(); 
 ```
 
-![paintandmouse01](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/11_PointAndMouse/kuvat/PaintAndMouse02.png)
+![paintandmouse01](kuvat/PaintAndMouse02.png)
 
 Kuva 2. Tikku-ukko numero kaksi
 

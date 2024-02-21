@@ -3,7 +3,7 @@
 Kirjoita Windows Forms -ohjema, jonka formissa on toiminnot taulukon luontia, talletusta ja hakua varten (Kuva 1-1).  
 
 
-![array01](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/07_Array/kuvat/array01.png)
+![array01](kuvat/array01.png)
 
 Kuva 1-1. Pääformi 
 

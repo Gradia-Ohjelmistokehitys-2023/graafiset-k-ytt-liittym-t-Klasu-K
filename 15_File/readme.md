@@ -3,7 +3,7 @@
 Tässä tehtävässä tutustutaan RichTextBox-komponenttiin ja tekstitiedoston käsittelyyn (Luonti, talletus ja luku) sekä windowsin valmiisiin standarteihin avaus/talletus dialogeihin. Valmiin editoriohjelman ikkuna näyttää kuvan 1 mukaiselta. 
 
 
-![file01](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/14_File/kuvat/file01.png)
+![file01](kuvat/file01.png)
 
 Kuva 1 Tekstiedotorin näkymä
 
@@ -17,7 +17,7 @@ b) Lisää formiin RichTextBox-komponentti ja sido se formin työalueen reunoihi
   
 c) Luo File-valikkoon kuvan 1-2 mukainen valintarakenne ja valinnoille tapahtumankäsittelijät. 
 
-![file02](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/14_File/kuvat/file02.png)
+![file02](kuvat/file02.png)
 
 Kuva 2 File-menu
 

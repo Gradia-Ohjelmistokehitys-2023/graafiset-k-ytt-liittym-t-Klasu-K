@@ -6,7 +6,7 @@ Kirjoita Windows Forms -ohjelma, jonka formissa (Kuva 1-1) on TextBox-komponentt
 
 For-luuppi on kätevä silloin, kun etukäteen tiedetään luupin kierrosten lukumäärä.  
 
-![for01](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/05_For/kuvat/for01.png)
+![for01](kuvat/for01.png)
 
 Kuva 1. Pääformi 
 

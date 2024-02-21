@@ -2,7 +2,7 @@
 
 Kirjoita Windows Forms -ohjema, jonka formissa on toiminnot Dictionary-rakenteen luontia, Key/Value-parien lisäämistä, talletettujen Value-arvojen haku Key-indeksin avulla sekä näiden tulostamista varten (Kuva 1.).  
 
-![kuva](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/10_Dictionary/kuvat/dictionary01.png)
+![kuva](kuvat/dictionary01.png)
 
 Kuva 1. Pääformi 
 

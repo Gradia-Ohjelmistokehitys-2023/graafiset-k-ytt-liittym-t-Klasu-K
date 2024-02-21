@@ -14,6 +14,6 @@ c) Lisää KeyUp-eventin tapahtumankäsittelijään Invalidate()-metodin kutsu, 
 
 Kuinka saat estettyä ettei teksti kenttä ole valittuna? Ratkaisu löytyy tekstikentän ominaisuuksista. Laita TextBox:iin tabstop=false, jolloin niitä ei automaattisesti valita. Oletuksena tab arvoltaan pienin controlli, jolla on tabstop true, on valittuna lomakkeen käynnistyessä. 
 
-![kuva](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/12_Keyboard/kuvat/keyboard01.png)
+![kuva](kuvat/keyboard01.png)
 
 Kuva 1. Pääformi 

@@ -5,15 +5,15 @@ Kirjoita Windows Forms -ohjelma, jonka formissa on taustakuva (Viidakko.png). Ta
 a) Lisää formiin taustakuva formin BackgroundImage-ominaisuuden avulla.  
 
 Lisää Hessun kuva projektin resursseihin seuraavasti: 
-![kuva01](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/13_Picture/kuvat/picture01.png)
+![kuva01](kuvat/picture01.png)
 
-![kuva02](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/13_Picture/kuvat/picture02.png)
+![kuva02](kuvat/picture02.png)
 
-![kuva03](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/13_Picture/kuvat/picture03.png)
+![kuva03](kuvat/picture03.png)
 
-![kuva04](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/13_Picture/kuvat/picture04.png)
+![kuva04](kuvat/picture04.png)
 
-![kuva05](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/13_Picture/kuvat/picture05.png)
+![kuva05](kuvat/picture05.png)
 
  
 Tämän jälkeen kuvaan voidaan viitata koodissa Properties.Recourses.kuvannimi. 

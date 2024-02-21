@@ -4,11 +4,11 @@
 While-luuppi on kätevä silloin, kun etukäteen ei tiedetään luupin kierrosten lukumäärää. 
 
 
-![while01](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/06_While/kuvat/while01.png)
+![while01](kuvat/while01.png)
 
 Kuva 1. Pääformi
 
-![while02](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/06_While/kuvat/while02.png)
+![while02](kuvat/while02.png)
 
 Kuva 2. Messageboksi
 

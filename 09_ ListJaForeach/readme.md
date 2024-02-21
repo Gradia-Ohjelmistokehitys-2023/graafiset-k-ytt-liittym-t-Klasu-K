@@ -2,7 +2,7 @@
 
 Kirjoita Windows Forms -ohjelma, jonka formissa on toiminnot listan luontia, merkkijonojen lisäämistä, listan sisällön hakemista ja tulostamista varten (Kuva 1).  
 
-![paaformi](https://github.com/Gradia-Ohjelmistokehitys-k2022/graafiset-kayttoliittymat-pohja/blob/main/09_ListJaForeach/kuvat/listjaforeachpaaformi01.png)
+![paaformi](kuvat/listjaforeachpaaformi01.png)
 
 Kuva 1. Pääformi 
 
