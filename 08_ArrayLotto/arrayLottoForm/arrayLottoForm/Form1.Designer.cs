@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnDrawNumbers = new Button();
             labelNumbers = new Label();
             labelNumbersOrdered = new Label();
             labelBonusNumbers = new Label();
@@ -36,71 +35,69 @@
             txtUserNumbers = new TextBox();
             label2 = new Label();
             labelCorrectNumbersAmount = new Label();
+            btnDrawNumbers = new Button();
             SuspendLayout();
-            // 
-            // btnDrawNumbers
-            // 
-            btnDrawNumbers.Location = new Point(54, 65);
-            btnDrawNumbers.Name = "btnDrawNumbers";
-            btnDrawNumbers.Size = new Size(157, 34);
-            btnDrawNumbers.TabIndex = 0;
-            btnDrawNumbers.Text = "Arvo Numerot";
-            btnDrawNumbers.UseVisualStyleBackColor = true;
-            btnDrawNumbers.Click += btnDrawNumbers_Click;
             // 
             // labelNumbers
             // 
             labelNumbers.AutoSize = true;
             labelNumbers.BackColor = SystemColors.ButtonShadow;
-            labelNumbers.Location = new Point(278, 35);
-            labelNumbers.MinimumSize = new Size(120, 10);
+            labelNumbers.Location = new Point(195, 21);
+            labelNumbers.Margin = new Padding(2, 0, 2, 0);
+            labelNumbers.MinimumSize = new Size(84, 6);
             labelNumbers.Name = "labelNumbers";
-            labelNumbers.Size = new Size(120, 25);
+            labelNumbers.Size = new Size(84, 15);
             labelNumbers.TabIndex = 1;
             // 
             // labelNumbersOrdered
             // 
             labelNumbersOrdered.AutoSize = true;
             labelNumbersOrdered.BackColor = SystemColors.ButtonShadow;
-            labelNumbersOrdered.Location = new Point(278, 74);
-            labelNumbersOrdered.MinimumSize = new Size(120, 10);
+            labelNumbersOrdered.Location = new Point(195, 44);
+            labelNumbersOrdered.Margin = new Padding(2, 0, 2, 0);
+            labelNumbersOrdered.MinimumSize = new Size(84, 6);
             labelNumbersOrdered.Name = "labelNumbersOrdered";
-            labelNumbersOrdered.Size = new Size(120, 25);
+            labelNumbersOrdered.Size = new Size(84, 15);
             labelNumbersOrdered.TabIndex = 2;
             // 
             // labelBonusNumbers
             // 
             labelBonusNumbers.AutoSize = true;
             labelBonusNumbers.BackColor = SystemColors.ButtonShadow;
-            labelBonusNumbers.Location = new Point(437, 74);
-            labelBonusNumbers.MinimumSize = new Size(120, 10);
+            labelBonusNumbers.Location = new Point(306, 44);
+            labelBonusNumbers.Margin = new Padding(2, 0, 2, 0);
+            labelBonusNumbers.MinimumSize = new Size(84, 6);
             labelBonusNumbers.Name = "labelBonusNumbers";
-            labelBonusNumbers.Size = new Size(120, 25);
+            labelBonusNumbers.Size = new Size(84, 15);
             labelBonusNumbers.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(76, 208);
+            label1.Location = new Point(105, 123);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(135, 25);
+            label1.Size = new Size(218, 15);
             label1.TabIndex = 4;
-            label1.Text = "Sinun numerosi";
+            label1.Text = "Sinun numerosi(erota numerot pilkulla):";
+            label1.Click += label1_Click;
             // 
             // txtUserNumbers
             // 
-            txtUserNumbers.Location = new Point(260, 211);
+            txtUserNumbers.Location = new Point(154, 140);
+            txtUserNumbers.Margin = new Padding(2, 2, 2, 2);
             txtUserNumbers.Name = "txtUserNumbers";
-            txtUserNumbers.Size = new Size(150, 31);
+            txtUserNumbers.Size = new Size(106, 23);
             txtUserNumbers.TabIndex = 5;
             txtUserNumbers.TextChanged += txtUserNumbers_TextChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(158, 332);
+            label2.Location = new Point(105, 203);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(310, 25);
+            label2.Size = new Size(208, 15);
             label2.TabIndex = 6;
             label2.Text = "Oikein menneiden numeroiden määrä";
             // 
@@ -108,17 +105,29 @@
             // 
             labelCorrectNumbersAmount.AutoSize = true;
             labelCorrectNumbersAmount.BackColor = SystemColors.ButtonShadow;
-            labelCorrectNumbersAmount.Location = new Point(278, 385);
+            labelCorrectNumbersAmount.Location = new Point(195, 231);
+            labelCorrectNumbersAmount.Margin = new Padding(2, 0, 2, 0);
             labelCorrectNumbersAmount.Name = "labelCorrectNumbersAmount";
-            labelCorrectNumbersAmount.Size = new Size(22, 25);
+            labelCorrectNumbersAmount.Size = new Size(13, 15);
             labelCorrectNumbersAmount.TabIndex = 7;
             labelCorrectNumbersAmount.Text = "0";
             // 
+            // btnDrawNumbers
+            // 
+            btnDrawNumbers.Location = new Point(38, 39);
+            btnDrawNumbers.Margin = new Padding(2);
+            btnDrawNumbers.Name = "btnDrawNumbers";
+            btnDrawNumbers.Size = new Size(110, 20);
+            btnDrawNumbers.TabIndex = 0;
+            btnDrawNumbers.Text = "Arvo Numerot";
+            btnDrawNumbers.UseVisualStyleBackColor = true;
+            btnDrawNumbers.Click += btnDrawNumbers_Click;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(656, 614);
+            ClientSize = new Size(459, 368);
             Controls.Add(labelCorrectNumbersAmount);
             Controls.Add(label2);
             Controls.Add(txtUserNumbers);
@@ -127,6 +136,7 @@
             Controls.Add(labelNumbersOrdered);
             Controls.Add(labelNumbers);
             Controls.Add(btnDrawNumbers);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -134,8 +144,6 @@
         }
 
         #endregion
-
-        private Button btnDrawNumbers;
         private Label labelNumbers;
         private Label labelNumbersOrdered;
         private Label labelBonusNumbers;
@@ -143,5 +151,6 @@
         private TextBox txtUserNumbers;
         private Label label2;
         private Label labelCorrectNumbersAmount;
+        private Button btnDrawNumbers;
     }
 }
