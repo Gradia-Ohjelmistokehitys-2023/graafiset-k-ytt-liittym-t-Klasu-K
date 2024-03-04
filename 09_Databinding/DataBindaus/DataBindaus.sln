@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBindaus", "DataBindaus\DataBindaus.csproj", "{BEA5A789-A287-41BD-B46A-3C4DB5A78A04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEA5A789-A287-41BD-B46A-3C4DB5A78A04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEA5A789-A287-41BD-B46A-3C4DB5A78A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEA5A789-A287-41BD-B46A-3C4DB5A78A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEA5A789-A287-41BD-B46A-3C4DB5A78A04}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8BFDB47-F44A-4F76-B6DC-3E5ADC8226D6}
+	EndGlobalSection
+EndGlobal

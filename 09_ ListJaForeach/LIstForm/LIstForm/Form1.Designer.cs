@@ -41,35 +41,39 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(167, 30);
+            label1.Location = new Point(239, 50);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(168, 15);
+            label1.Size = new Size(252, 25);
             label1.TabIndex = 0;
             label1.Text = "Luodaan string-tyyppinen lista";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(167, 136);
+            label2.Location = new Point(239, 227);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(150, 15);
+            label2.Size = new Size(224, 25);
             label2.TabIndex = 1;
             label2.Text = "Lisätään listaan merkkijono";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(167, 306);
+            label3.Location = new Point(276, 528);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(150, 15);
+            label3.Size = new Size(102, 25);
             label3.TabIndex = 2;
-            label3.Text = "Lisätään listaan merkkijono";
+            label3.Text = "Hae listasta";
             // 
             // btnCreateList
             // 
-            btnCreateList.Location = new Point(211, 58);
+            btnCreateList.Location = new Point(301, 97);
+            btnCreateList.Margin = new Padding(4, 5, 4, 5);
             btnCreateList.Name = "btnCreateList";
-            btnCreateList.Size = new Size(75, 23);
+            btnCreateList.Size = new Size(107, 38);
             btnCreateList.TabIndex = 3;
             btnCreateList.Text = "Luo lista";
             btnCreateList.UseVisualStyleBackColor = true;
@@ -77,9 +81,10 @@
             // 
             // btnAddStringToList
             // 
-            btnAddStringToList.Location = new Point(346, 166);
+            btnAddStringToList.Location = new Point(494, 277);
+            btnAddStringToList.Margin = new Padding(4, 5, 4, 5);
             btnAddStringToList.Name = "btnAddStringToList";
-            btnAddStringToList.Size = new Size(75, 23);
+            btnAddStringToList.Size = new Size(107, 38);
             btnAddStringToList.TabIndex = 4;
             btnAddStringToList.Text = "Lisää";
             btnAddStringToList.UseVisualStyleBackColor = true;
@@ -87,9 +92,10 @@
             // 
             // btnSearchFromList
             // 
-            btnSearchFromList.Location = new Point(346, 345);
+            btnSearchFromList.Location = new Point(494, 575);
+            btnSearchFromList.Margin = new Padding(4, 5, 4, 5);
             btnSearchFromList.Name = "btnSearchFromList";
-            btnSearchFromList.Size = new Size(75, 23);
+            btnSearchFromList.Size = new Size(107, 38);
             btnSearchFromList.TabIndex = 5;
             btnSearchFromList.Text = "Haku";
             btnSearchFromList.UseVisualStyleBackColor = true;
@@ -100,23 +106,25 @@
             cbStringList.DropDownStyle = ComboBoxStyle.DropDownList;
             cbStringList.FormattingEnabled = true;
             cbStringList.Items.AddRange(new object[] { "aa", "bb", "cc" });
-            cbStringList.Location = new Point(147, 345);
+            cbStringList.Location = new Point(210, 575);
+            cbStringList.Margin = new Padding(4, 5, 4, 5);
             cbStringList.Name = "cbStringList";
-            cbStringList.Size = new Size(170, 23);
+            cbStringList.Size = new Size(241, 33);
             cbStringList.TabIndex = 6;
             // 
             // txtStringToBeAdded
             // 
-            txtStringToBeAdded.Location = new Point(147, 166);
+            txtStringToBeAdded.Location = new Point(210, 277);
+            txtStringToBeAdded.Margin = new Padding(4, 5, 4, 5);
             txtStringToBeAdded.Name = "txtStringToBeAdded";
-            txtStringToBeAdded.Size = new Size(179, 23);
+            txtStringToBeAdded.Size = new Size(254, 31);
             txtStringToBeAdded.TabIndex = 7;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(534, 450);
+            ClientSize = new Size(763, 750);
             Controls.Add(txtStringToBeAdded);
             Controls.Add(cbStringList);
             Controls.Add(btnSearchFromList);
@@ -125,6 +133,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
