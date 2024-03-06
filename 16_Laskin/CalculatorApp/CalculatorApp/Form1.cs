@@ -1,8 +1,9 @@
-using System.Diagnostics;
+using CalculatorApp.Backend;
 namespace CalculatorApp
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent();
@@ -11,45 +12,6 @@ namespace CalculatorApp
         private void addCharacter(char character)
         {
             txtDisplay.AppendText(character.ToString());
-        }
-
-        private bool calculate()
-        {
-            int number = 0;
-            int indexOfLastChar = 0;
-            Debug.WriteLineIf(getNextNumbers(0, ref number, ref indexOfLastChar), number);
-            return true;
-        }
-
-        private bool getNextNumbers(int startIndex, ref int number, ref int indexOfLastChar)
-        {
-            string characters = txtDisplay.Text.Substring(startIndex);
-
-
-            int numberAmount = 0;
-            bool onlyValidNumbersFound = true;
-            while (onlyValidNumbersFound && numberAmount < characters.Length) {
-                if (char.IsDigit(characters, numberAmount)) {                    
-                    numberAmount++;
-                }
-                else {
-                    onlyValidNumbersFound = false;
-                }
-            }
-            if (numberAmount > 0) {
-                indexOfLastChar = startIndex + numberAmount;
-                number = int.Parse(txtDisplay.Text.Substring(0, numberAmount));
-                return true;
-            }
-
-            return false;
-        }
-
-        private bool getNextOperation(int startIndex, ref char character, ref int indexOfLastChar)
-        {
-            string characters = txtDisplay.Text.Substring(startIndex);
-
-            return true;
         }
 
         private void btnNumberZero_Click(object sender, EventArgs e)
@@ -132,7 +94,7 @@ namespace CalculatorApp
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            calculate();
+            Calculator.Calculate(txtDisplay.Text);
         }
     }
 }
