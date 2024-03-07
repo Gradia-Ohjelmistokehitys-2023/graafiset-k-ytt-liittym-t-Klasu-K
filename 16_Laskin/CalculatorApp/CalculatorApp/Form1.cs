@@ -3,7 +3,7 @@ namespace CalculatorApp
 {
     public partial class Form1 : Form
     {
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -86,15 +86,18 @@ namespace CalculatorApp
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(txtDisplay.Text.Length > 0)
+            if (txtDisplay.Text.Length > 0)
             {
                 txtDisplay.Text = txtDisplay.Text.Remove(txtDisplay.Text.Length - 1);
-            }      
+            }
         }
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            Calculator.Calculate(txtDisplay.Text);
+            if (Calculator.Calculate(txtDisplay.Text, out float results))
+            {
+                txtDisplay.Text = results.ToString();
+            }
         }
     }
 }

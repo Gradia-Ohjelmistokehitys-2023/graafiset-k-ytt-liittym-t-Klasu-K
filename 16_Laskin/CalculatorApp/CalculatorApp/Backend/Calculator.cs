@@ -11,97 +11,107 @@ namespace CalculatorApp.Backend
     {
         static string remainingCharacters;
         static List<char> operations = new List<char>();
-        static List<int> numbers = new List<int>();
+        static List<float> numbers = new List<float>();
 
-        public static bool Calculate(string calculation)
+        public static bool Calculate(string calculation, out float result)
         {
-            bool validCalculation = !string.IsNullOrEmpty(calculation);
-            if (validCalculation && (!char.IsDigit(calculation[0]) || !char.IsDigit(calculation.Last())))
-            {
+            bool validCalculation = true;
+            if(string.IsNullOrEmpty(calculation)) {
                 validCalculation = false;
+            }
+            if (validCalculation && !char.IsDigit(calculation[0]) && calculation[0] != '-') {
+                validCalculation = false;
+            }
+            if (validCalculation && !char.IsDigit(calculation.Last())) { 
+                validCalculation = false; 
             }
 
             if(validCalculation)
             {
                 remainingCharacters = calculation;
-                //if only for testing
                 ExtractCalculationsToArrays(ref validCalculation);
                 
             }
 
             if (validCalculation)
             {
-                calculateData();
-                numbers.ForEach(number => { Debug.WriteLine(number); });
-                operations.ForEach(operation => { Debug.WriteLine(operation); });
-                Debug.WriteLine("------------------------");
+                ResolveOperations("*/");
+                ResolveOperations("+-");
+                result = numbers[0];
                 return true;
             }
             else
             {
+                result = 0;
                 return false;
             }
 
             
         }
 
-        private static bool calculateData()
+        private static void ResolveOperations(string operationsToCalculate)
         {
-            operations.Reverse();
-            numbers.Reverse();
-
-            for(int i = operations.Count -1; i >= 0; i--)
+            int operationPositionOnList = 0;
+            while(operationPositionOnList < operations.Count)
             {
-                Char character = operations[i];
-                if (character == '*')
+                Char character = operations[operationPositionOnList];
+                if (operationsToCalculate.Contains(character))
                 {
-                    int result = numbers[i+1] * numbers[i];
-                    numbers[i] = result;
-                    numbers.RemoveAt(i + 1);
-                    operations.RemoveAt(i);
+                    float result = MakeOperation(operationPositionOnList, character);
                 }
-                if (character == '/')
+                else
                 {
-                    int result = numbers[i+1] / numbers[i];
-                    numbers[i] = result;
-                    numbers.RemoveAt(i + 1);
-                    operations.RemoveAt(i);
+                    operationPositionOnList++;
                 }
             }
-            for (int i = operations.Count - 1; i >= 0; i--)
-            {
-                Char character = operations[i];
-                if (character == '+')
-                {
-                    int result = numbers[i + 1] + numbers[i];
-                    numbers[i] = result;
-                    numbers.RemoveAt(i + 1);
-                    operations.RemoveAt(i);
-                }
-                if (character == '-')
-                {
-                    int result = numbers[i + 1] - numbers[i];
-                    numbers[i] = result;
-                    numbers.RemoveAt(i + 1);
-                    operations.RemoveAt(i);
-                }
-            }
-            operations.Reverse();
-            numbers.Reverse();
+        }
 
-            return false;
+        private static float MakeOperation(int index, char character)
+        {
+            float result = 0;
+            switch (character)
+            {
+                case '*':
+                    result = numbers[index] * numbers[index + 1];
+                    break;
+                case '/':
+                    result = numbers[index] / numbers[index + 1];
+                    break;
+                case '-':
+                    result = numbers[index] - numbers[index + 1];
+                    break;
+                case '+':
+                    result = numbers[index] + numbers[index + 1];
+                    break;
+                default:
+                    Trace.TraceError($"{character} is not implemented");
+                    break;
+            }
+            numbers[index] = result;
+            numbers.RemoveAt(index + 1);
+            operations.RemoveAt(index);
+            return result;
         }
 
         private static void ExtractCalculationsToArrays(ref bool validCalculation)
         {
             numbers.Clear();
             operations.Clear();
-            int number = 0;
+            float number = 0;
             char operation = ' ';
             bool foundValidNumber = true;
             while (foundValidNumber)
             {
-                foundValidNumber = NextPartIsNumber(ref number);
+                try
+                {
+                    foundValidNumber = NextPartIsNumber(ref number);
+                }
+                catch (Exception)
+                {
+                    //next part was numberlike, but could not be parsed
+                    foundValidNumber = false;
+                    validCalculation = false;
+                }                
                 if (foundValidNumber)
                 {
                     numbers.Add(number);
@@ -118,31 +128,36 @@ namespace CalculatorApp.Backend
                     }
                     else
                     {
+                        //two operations on row
                         validCalculation = false;
                     }
                 }
             }
         }
 
-        private static bool NextPartIsNumber(ref int number)
+        private static bool NextPartIsNumber(ref float number)
         {
-            int numberAmount = 0;
-            bool onlyValidNumbersFound = true;
-            while (onlyValidNumbersFound && numberAmount < remainingCharacters.Length)
+            int nextPartLength = 0;
+            bool onlyValidNumbersFound = true; 
+
+            if(remainingCharacters.Length != 0 && remainingCharacters[0] == '-') {
+                    nextPartLength++;
+            }           
+            while (onlyValidNumbersFound && nextPartLength < remainingCharacters.Length)
             {
-                
-                if (char.IsDigit(remainingCharacters, numberAmount))
+                char character = remainingCharacters[nextPartLength];
+                if (char.IsDigit(character) || character == '.' || character == ',')
                 {
-                    numberAmount++;
+                    nextPartLength++;
                 }
                 else
                 {
                     onlyValidNumbersFound = false;
                 }
             }
-            if (numberAmount > 0)
+            if (nextPartLength > 0)
             {
-                number = int.Parse(remainingCharacters.Substring(0, numberAmount));
+                number = float.Parse(remainingCharacters.Substring(0, nextPartLength));
                 return true;
             }
             else
