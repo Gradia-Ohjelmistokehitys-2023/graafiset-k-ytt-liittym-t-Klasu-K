@@ -19,6 +19,11 @@ namespace miinaharava
 
         }
 
+        public void TileClicked(Tile tile)
+        {
+            Presenter.TileClicked(tile);
+        }
+
         private void btnMapSizeClick(object sender, EventArgs e)
         {
             Button btn = sender as Button;
@@ -40,6 +45,28 @@ namespace miinaharava
         private void btnStartGame_Click(object sender, EventArgs e)
         {
             GameStarted();
+        }
+
+        public void RevealTileToPlayer(Tile tile, int adjacentMinesCount, bool isMine)
+        {
+            if(isMine)
+            {
+                tile.Button.BackColor = Color.Black;
+            }
+            else
+            {
+                if (adjacentMinesCount == 0)
+                {
+                    tile.Button.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    tile.Button.Text = adjacentMinesCount.ToString();
+                }
+            }
+            Invalidate();
+            Debug.WriteLine("test");
+            Thread.Sleep(1);
         }
 
         public void SetMainMenuVisibility(bool visible)

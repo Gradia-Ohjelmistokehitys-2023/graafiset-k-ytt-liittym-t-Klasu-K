@@ -15,9 +15,19 @@ namespace miinaharava.Presenter
 
         public void StartGame()
         {
-            Debug.WriteLine(Map.Size[View.mapSize].Name);
+            Debug.WriteLine(MapData.Size[View.mapSize].Name);
             View.SetMainMenuVisibility(false);
-            Model.GenerateMap(Map.Size[View.mapSize]);
+            Model.GenerateMap(MapData.Size[View.mapSize]);
+        }
+
+        public void TileClicked(Tile tile)
+        {
+            tile.RevealThisTile();
+        }
+
+        public void RevealTileToPlayer(Tile tile)
+        {
+            View.RevealTileToPlayer(tile, tile.GetAdjacentMineCount(), tile.IsMine);
         }
     }
 }
