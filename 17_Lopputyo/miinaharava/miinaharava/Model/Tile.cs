@@ -10,28 +10,29 @@ namespace miinaharava.Model
 {
     public class Tile
     {
-        List<Tile> _adjacentTiles = new List<Tile>();
         MiinaharavaModel _model;
         int? _adjacentMinesCount;
-        Point _location;
         
+        public List<Tile> AdjacentTiles = new List<Tile>();
+        public Point Location;
         public Button Button;
         public bool tileHasBeenOpened = false;
         public bool IsMine = false;
+        public bool IsFlagged;
         
 
         public Tile(Point location, int size, bool isMine, MiinaharavaModel model)
         {
             _model = model;
             Button = new Button();
-            _location = location;
+            Location = location;
             IsMine = isMine;
 
-            Button.Location = new Point(_location.X * size, _location.Y * size);
+            Button.Location = new Point(Location.X * size, Location.Y * size);
             Button.Size = new Size(size, size);
             Button.FlatStyle = FlatStyle.Flat;
             Button.BackColor = Color.LightGreen;
-            Button.Click += (sender, e) => _model.Presenter.View.TileClicked(this);
+            Button.MouseUp += (sender, e) => _model.Presenter.View.TileClicked(sender, e, this);
 
             _model.Presenter.View.Controls.Add(Button);
  
@@ -45,13 +46,13 @@ namespace miinaharava.Model
             {
                 for (int x = -1; x < 2; x++)
                 {
-                    int tileLocationX = _location.X + x;
-                    int tileLocationY = _location.Y + y;
+                    int tileLocationX = Location.X + x;
+                    int tileLocationY = Location.Y + y;
                     if(tileLocationX > -1 && tileLocationX < mapWidth) {
                         if(tileLocationY > -1 && tileLocationY < mapHeight)
                         {
                             if(!(x == 0 && y == 0))
-                            _adjacentTiles.Add(_model.Map.tileGrid[tileLocationX, tileLocationY]);
+                            AdjacentTiles.Add(_model.Map.tileGrid[tileLocationX, tileLocationY]);
                         }
                     }
                 }
@@ -65,9 +66,22 @@ namespace miinaharava.Model
         {
             tileHasBeenOpened = true;
             RevealTileToPlayer();
+            if(IsMine)
+            {
+                _model.Presenter.GameLost();
+                return;
+            } else
+            {
+                _model.safeTilesLeft--;
+                if(_model.safeTilesLeft == 0)
+                {
+                    _model.Presenter.GameWon();
+                    return;
+                }
+            }
             if(GetAdjacentMineCount() == 0) 
             {
-                foreach (var adjacentTile in _adjacentTiles)
+                foreach (var adjacentTile in AdjacentTiles)
                 {
                     if (!adjacentTile.tileHasBeenOpened)
                     {
@@ -75,7 +89,6 @@ namespace miinaharava.Model
                     }
                 }
             }
-            
         }
 
         public int GetAdjacentMineCount()
@@ -85,7 +98,7 @@ namespace miinaharava.Model
             }
             else
             {
-                _adjacentMinesCount = _adjacentTiles.Count(tile => tile.IsMine);
+                _adjacentMinesCount = AdjacentTiles.Count(tile => tile.IsMine);
                 return (int)_adjacentMinesCount;
             }
         }
