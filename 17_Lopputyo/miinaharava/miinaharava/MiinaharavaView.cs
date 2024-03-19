@@ -130,5 +130,10 @@ namespace miinaharava
                 labelResultText.ForeColor = Color.Red;
             }
         }
+
+        private void labelResultText_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
