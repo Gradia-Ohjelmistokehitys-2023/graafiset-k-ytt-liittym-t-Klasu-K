@@ -92,8 +92,33 @@
 
             </Border>
         </Grid>
-        <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Background="BurlyWood"/>
-        <Grid Grid.Row="2" Grid.Column="1"
+    <Grid Grid.Row="2" Grid.Column="0" 
+          Background="BurlyWood">
+        
+            <TabControl>
+                <TabItem Header="Inventory">
+                    <DataGrid 
+                        AutoGenerateColumns="False" 
+                        ItemsSource="{Binding CurrentPlayer.Inventory}"
+                        HeadersVisibility="Column">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn 
+                                Header="Content" 
+                                Width="*" 
+                                Binding="{Binding Name}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn 
+                                Header="Items" 
+                                Width="auto" 
+                                Binding="{Binding Price}">
+                            </DataGridTextColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+    </Grid>
+    <Grid Grid.Row="2" Grid.Column="1"
               Background="Lavender">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />

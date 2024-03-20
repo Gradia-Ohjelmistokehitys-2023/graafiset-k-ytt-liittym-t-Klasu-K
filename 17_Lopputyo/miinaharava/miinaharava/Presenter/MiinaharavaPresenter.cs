@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WPFUI;
 
 namespace miinaharava.Presenter
 {
@@ -18,7 +19,8 @@ namespace miinaharava.Presenter
         bool _firstReveal = true;
         public void StartGame()
         {
-            View.SetMainMenuVisibility(false);
+            var wpfwindow = new MiinaharavaWPFUI();
+            wpfwindow.Show();
             Model.GenerateMap(MapData.Size[View.mapSize]);
             timer.Start();
         }

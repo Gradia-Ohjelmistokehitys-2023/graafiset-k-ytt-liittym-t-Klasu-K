@@ -6,6 +6,13 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>True</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="WPFUI">
+      <HintPath>..\WPFUI\bin\Debug\net6.0-windows\WPFUI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>
