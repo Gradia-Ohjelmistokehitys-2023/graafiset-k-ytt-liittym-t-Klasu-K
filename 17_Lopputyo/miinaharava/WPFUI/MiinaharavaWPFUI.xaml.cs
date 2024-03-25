@@ -22,6 +22,7 @@ namespace WPFUI
         public MiinaharavaWPFUI()
         {
             InitializeComponent();
+            _mainFrame.Navigate(new MainMenu());
         }
 
     }

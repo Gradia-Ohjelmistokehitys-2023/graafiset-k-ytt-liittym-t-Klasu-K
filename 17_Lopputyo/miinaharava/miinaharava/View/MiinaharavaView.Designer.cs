@@ -174,7 +174,6 @@
             labelSeconds.TabIndex = 1;
             labelSeconds.Text = "00";
             labelSeconds.TextAlign = ContentAlignment.MiddleLeft;
-            labelSeconds.Click += labelSeconds_Click;
             // 
             // label2
             // 
@@ -196,7 +195,6 @@
             Controls.Add(gbMainMenu);
             Name = "MiinaharavaView";
             Text = "Form1";
-            Load += MiinaharavaView_Load;
             gbMainMenu.ResumeLayout(false);
             gbMainMenu.PerformLayout();
             panelMapSizeBtns.ResumeLayout(false);

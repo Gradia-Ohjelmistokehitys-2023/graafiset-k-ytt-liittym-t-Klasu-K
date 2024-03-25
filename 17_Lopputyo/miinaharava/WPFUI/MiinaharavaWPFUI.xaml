@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MiinaharavaWPFUI" Height="450" Width="800">
     <Grid>
-        <Frame Content="Frame"/>
+        <Frame x:Name="_mainFrame" Content="Frame"/>
 
     </Grid>
 </Window>

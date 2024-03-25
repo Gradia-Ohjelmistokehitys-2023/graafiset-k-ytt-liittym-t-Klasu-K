@@ -20,10 +20,12 @@ namespace miinaharava
             MiinaharavaPresenter presenter = new MiinaharavaPresenter();
             MiinaharavaModel model = new MiinaharavaModel();
             view.Presenter = presenter;
+            presenter.MainMenu = view;
             presenter.View = view;
             presenter.Model = model;
             model.Presenter = presenter;
 
+            presenter.Initialize();
             Application.Run(view);
         }
     }
