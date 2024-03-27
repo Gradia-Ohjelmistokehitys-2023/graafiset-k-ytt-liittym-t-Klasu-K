@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace miinaharava.Model
+namespace Common
 {
     public enum MapSizes
     {
