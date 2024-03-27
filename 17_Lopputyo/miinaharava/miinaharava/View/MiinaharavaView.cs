@@ -12,6 +12,7 @@ namespace miinaharava
         Color buttonHighlightColor = Color.LightGray;
         Color flagColor = Color.LightPink;
         private MapSizes _mapSize;
+        private Button[,] buttons;
         public MiinaharavaPresenter Presenter;
 
         public event Action<MapSizes> GameStarted;
@@ -60,6 +61,26 @@ namespace miinaharava
         private void btnStartGame_Click(object sender, EventArgs e)
         {
             GameStarted(_mapSize);
+        }
+
+
+        public void SetBoardSize(int width, int height)
+        {
+            buttons = new Button[width, height];
+        }
+
+        public void GenerateButtonForTile(Point location, Tile tile)
+        {
+            int size = 40;
+            Button button = new Button();
+            button.Location = new Point(location.X * size, location.Y * size);
+            button.Size = new Size(size, size);
+            button.FlatStyle = FlatStyle.Flat;
+            button.BackColor = Color.LightGreen;
+            button.MouseUp += (sender, e) => TileClicked(sender, e, tile);
+
+            Controls.Add(button);
+            buttons[location.X, location.Y] = button;
         }
 
         public void FlagTile(Tile tile)
