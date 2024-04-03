@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using Common.Data;
+using Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,23 @@ namespace WPFUI
     /// </summary>
     public partial class MiinaharavaWPFUI : Window
     {
-        public MiinaharavaWPFUI(IMainMenu mainMenu)
+        public event Action<MapSizes> GameStarted;
+        MainMenu _mainMenuPage;
+        GameboardPage _gameboardPage;
+        
+        public MiinaharavaWPFUI(IMainMenu mainMenu, IGameboard gameboard)
         {
             InitializeComponent();
-            _mainFrame.Navigate(mainMenu as MainMenu);
+            _mainMenuPage = mainMenu as MainMenu;
+            _gameboardPage = gameboard as GameboardPage;
+            _mainMenuPage.OnOpenGameboard += OpenGameboard;
+            _mainFrame.Navigate(_mainMenuPage);
         }
+
+        public void OpenGameboard()
+        {
+            _mainFrame.Navigate(_gameboardPage);
+        }
+
     }
 }

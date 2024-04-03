@@ -1,20 +1,21 @@
-﻿using miinaharava.Model;
-using Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common.Interfaces;
+using Common.Data;
 
 namespace miinaharava.Presenter
 {
-    
-    public class MiinaharavaPresenter
+
+    public class MiinaharavaPresenter : IPresenter
     {
         public MiinaharavaView View;
-        public IMainMenu MainMenu;
-        public MiinaharavaModel Model;
+        public IModel Model { get; set; }
+        public IMainMenu MainMenu {  get; set; }
+        public IGameboard Gameboard { get; set; }
         Stopwatch timer = new Stopwatch();
 
         bool _firstReveal = true;
@@ -27,13 +28,14 @@ namespace miinaharava.Presenter
         public void StartGame(MapSizes mapSize)
         {
             Debug.WriteLine("Game started");
+            MainMenu.OpenGameboard();
             Model.GenerateMap(MapData.Size[mapSize]);
             timer.Start();
         }
 
         public void TileOpened(Tile tile)
         {
-            if(_firstReveal)
+            if (_firstReveal)
             {
                 Model.FirstReveal(tile);
                 _firstReveal = false;
@@ -42,12 +44,12 @@ namespace miinaharava.Presenter
             {
                 tile.RevealThisTile();
             }
-            
+
         }
 
         public void TileFlagged(Tile tile)
         {
-            if(!tile.tileHasBeenOpened)
+            if (!tile.tileHasBeenOpened)
             {
                 View.FlagTile(tile);
             }
@@ -63,7 +65,7 @@ namespace miinaharava.Presenter
             View.SetBoardSize(width, height);
         }
 
-        public void GenerateButtonForTile(Point location, Tile tile)
+        public void GenerateButtonForTile(Position location, Tile tile)
         {
             View.GenerateButtonForTile(location, tile);
         }

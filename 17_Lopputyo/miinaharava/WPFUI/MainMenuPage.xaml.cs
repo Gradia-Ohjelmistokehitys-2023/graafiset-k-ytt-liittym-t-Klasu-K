@@ -13,7 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Common;
+using Common.Data;
+using Common.Interfaces;
 
 namespace WPFUI
 {
@@ -25,6 +26,7 @@ namespace WPFUI
         private MapSizes _mapSize;
 
         public event Action<MapSizes> GameStarted;
+        public event Action OnOpenGameboard;
 
         Button[] mapSizeButtons;
 
@@ -71,6 +73,11 @@ namespace WPFUI
         private void btnStartGameClicked(object sender, RoutedEventArgs e)
         {
             GameStarted(_mapSize);
+        }
+
+        public void OpenGameboard()
+        {
+            OnOpenGameboard();
         }
     }
 }
