@@ -26,7 +26,6 @@ namespace miinaharava.Presenter
 
         public void StartGame(MapSizes mapSize)
         {
-            Debug.WriteLine("Game started");
             Model.GenerateMap(MapData.Size[mapSize]);
             timer.Start();
         }
@@ -56,16 +55,6 @@ namespace miinaharava.Presenter
         public void RevealTileToPlayer(Tile tile)
         {
             View.RevealTileToPlayer(tile, tile.GetAdjacentMineCount(), tile.IsMine);
-        }
-
-        public void SetBoardSize(int width, int height)
-        {
-            View.SetBoardSize(width, height);
-        }
-
-        public void GenerateButtonForTile(Point location, Tile tile)
-        {
-            View.GenerateButtonForTile(location, tile);
         }
 
         public void GameLost()

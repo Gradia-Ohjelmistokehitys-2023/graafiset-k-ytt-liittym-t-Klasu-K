@@ -21,11 +21,21 @@ namespace miinaharava.Model
         public bool IsFlagged;
         
 
-        public Tile(Point location, bool isMine, MiinaharavaModel model)
+        public Tile(Point location, int size, bool isMine, MiinaharavaModel model)
         {
             _model = model;
+            Button = new Button();
             Location = location;
             IsMine = isMine;
+
+            Button.Location = new Point(Location.X * size, Location.Y * size);
+            Button.Size = new Size(size, size);
+            Button.FlatStyle = FlatStyle.Flat;
+            Button.BackColor = Color.LightGreen;
+            Button.MouseUp += (sender, e) => _model.Presenter.View.TileClicked(sender, e, this);
+
+            _model.Presenter.View.Controls.Add(Button);
+ 
         }
 
         public void InitializeTile()

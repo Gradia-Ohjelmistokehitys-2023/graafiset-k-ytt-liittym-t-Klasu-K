@@ -28,7 +28,6 @@ namespace miinaharava.Model
 
             int horizontalTileAmount = Map.Width;
             int verticalTileAmount = Map.Height;
-            Presenter.SetBoardSize(horizontalTileAmount, verticalTileAmount);
             safeTilesLeft = Map.Width * Map.Height - Map.MineAmount; ;
             int unplacedMinesLeft = Map.MineAmount;
             int unplacedSafeTilesLeft = safeTilesLeft;
@@ -46,9 +45,7 @@ namespace miinaharava.Model
                     else { unplacedSafeTilesLeft--; }
                     
                     Point location = new Point(x, y);
-                    Tile tile = new Tile(location, isMine, this);
-                    Map.tileGrid[x, y] = tile;
-                    Presenter.GenerateButtonForTile(location, tile);
+                    Map.tileGrid[x,y] = new Tile(location, scale, isMine, this);
                 }
             }
             InitializeAllTiles();

@@ -1,5 +1,4 @@
-﻿using Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +19,11 @@ namespace WPFUI
     /// </summary>
     public partial class MiinaharavaWPFUI : Window
     {
-        public MiinaharavaWPFUI(IMainMenu mainMenu)
+        public MiinaharavaWPFUI()
         {
             InitializeComponent();
-            _mainFrame.Navigate(mainMenu as MainMenu);
+            _mainFrame.Navigate(new MainMenu());
         }
+
     }
 }
