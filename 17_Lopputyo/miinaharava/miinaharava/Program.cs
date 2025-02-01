@@ -1,7 +1,5 @@
 using miinaharava.Model;
 using miinaharava.Presenter;
-using System.Windows.Forms.Integration;
-using WPFUI;
 
 namespace miinaharava
 {
@@ -23,7 +21,6 @@ namespace miinaharava
             presenter.View = view;
             presenter.Model = model;
             model.Presenter = presenter;
-
             Application.Run(view);
         }
     }
