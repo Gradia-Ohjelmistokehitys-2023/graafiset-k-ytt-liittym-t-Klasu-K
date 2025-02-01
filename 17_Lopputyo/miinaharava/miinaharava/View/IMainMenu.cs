@@ -1,4 +1,6 @@
-﻿namespace Common
+﻿using miinaharava.Model;
+
+namespace miinaharava
 {
     public interface IMainMenu
     {

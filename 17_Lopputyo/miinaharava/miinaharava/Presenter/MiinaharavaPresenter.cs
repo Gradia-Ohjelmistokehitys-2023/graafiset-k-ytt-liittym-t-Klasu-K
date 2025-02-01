@@ -1,11 +1,11 @@
 ﻿using miinaharava.Model;
-using Common;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WPFUI;
 
 namespace miinaharava.Presenter
 {
@@ -26,6 +26,8 @@ namespace miinaharava.Presenter
 
         public void StartGame(MapSizes mapSize)
         {
+            var wpfWindow = new MiinaharavaWPFUI();
+            wpfWindow.Show();
             Model.GenerateMap(MapData.Size[mapSize]);
             timer.Start();
         }

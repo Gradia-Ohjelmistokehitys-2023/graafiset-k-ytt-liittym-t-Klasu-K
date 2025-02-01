@@ -13,7 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Common;
+using miinaharava.Model;
+using miinaharava;
 
 namespace WPFUI
 {
@@ -46,7 +47,7 @@ namespace WPFUI
 
         void SetMapSize(MapSizes mapSize)
         {
-            _mapSize = mapSize;
+            mapSize = mapSize;
         }
 
         private void btnSmallClicked(object sender, RoutedEventArgs e)
