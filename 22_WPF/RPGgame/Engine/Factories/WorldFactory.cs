@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Engine.Models;
 namespace Engine.Factories
 {
-    internal static class WorldFactory
+    internal class WorldFactory
     {
-        internal static World CreateWorld()
+        internal World CreateWorld()
         {
             World newWorld = new World();
             newWorld.AddLocation(-2, -1, "Farmer's Field",

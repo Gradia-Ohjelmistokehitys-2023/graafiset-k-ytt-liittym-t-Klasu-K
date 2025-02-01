@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Engine.ViewModels;
+
 namespace WPFUI
 {
     /// <summary>
@@ -23,25 +25,15 @@ namespace WPFUI
         private GameSession _gameSession;
         public MainWindow()
         {
+
             InitializeComponent();
             _gameSession = new GameSession();
-            DataContext = _gameSession;
+            DataContext = _gameSession; 
         }
-        private void OnClick_MoveNorth(object sender, RoutedEventArgs e)
+
+        public void ButtonBase_OnClick(object sender, EventArgs e)
         {
-            _gameSession.MoveNorth();
-        }
-        private void OnClick_MoveWest(object sender, RoutedEventArgs e)
-        {
-            _gameSession.MoveWest();
-        }
-        private void OnClick_MoveEast(object sender, RoutedEventArgs e)
-        {
-            _gameSession.MoveEast();
-        }
-        private void OnClick_MoveSouth(object sender, RoutedEventArgs e)
-        {
-            _gameSession.MoveSouth();
+            _gameSession.CurrentPlayer.Gold++;
         }
     }
 }

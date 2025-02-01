@@ -4,9 +4,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace Engine.Models
 {
-    public class Player : BaseNotificationClass
+    public class Player : INotifyPropertyChanged
     {
         private string _name;
         private string _characterClass;
@@ -20,7 +21,7 @@ namespace Engine.Models
             set
             {
                 _name = value;
-                OnPropertyChanged(nameof(Name));
+                OnPropertyChanged("Name");
             }
         }
         public string CharacterClass
@@ -29,7 +30,7 @@ namespace Engine.Models
             set
             {
                 _characterClass = value;
-                OnPropertyChanged(nameof(CharacterClass));
+                OnPropertyChanged("CharacterClass");
             }
         }
         public int HitPoints
@@ -38,7 +39,7 @@ namespace Engine.Models
             set
             {
                 _hitPoints = value;
-                OnPropertyChanged(nameof(HitPoints));
+                OnPropertyChanged("HitPoints");
             }
         }
         public int ExperiencePoints
@@ -47,7 +48,7 @@ namespace Engine.Models
             set
             {
                 _experiencePoints = value;
-                OnPropertyChanged(nameof(ExperiencePoints));
+                OnPropertyChanged("ExperiencePoints");
             }
         }
         public int Level
@@ -56,7 +57,7 @@ namespace Engine.Models
             set
             {
                 _level = value;
-                OnPropertyChanged(nameof(Level));
+                OnPropertyChanged("Level");
             }
         }
         public int Gold
@@ -65,8 +66,15 @@ namespace Engine.Models
             set
             {
                 _gold = value;
-                OnPropertyChanged(nameof(Gold));
+                OnPropertyChanged("Gold");
             }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
