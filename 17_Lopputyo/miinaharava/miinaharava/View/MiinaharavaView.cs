@@ -1,12 +1,12 @@
+using miinaharava.Model;
 using miinaharava.Presenter;
+using Common;
 using System.Diagnostics;
 using System.Windows.Forms.Integration;
-using Common.Interfaces;
-using Common.Data;
 
 namespace miinaharava
 {
-    public partial class MiinaharavaView : Form, IMainMenu, IGameboard
+    public partial class MiinaharavaView : Form, IMainMenu
     {
         Color defaultButtonColor = Color.LightGreen;
         Color buttonHighlightColor = Color.LightGray;
@@ -24,7 +24,7 @@ namespace miinaharava
         }
 
 
-        public void TileClicked(object sender, MouseEventArgs e, Tile  tile)
+        public void TileClicked(object sender, MouseEventArgs e, Tile tile)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -63,17 +63,13 @@ namespace miinaharava
             GameStarted(_mapSize);
         }
 
-        public void OpenGameboard()
-        {
-            SetMainMenuVisibility(false);
-        }
 
         public void SetBoardSize(int width, int height)
         {
             buttons = new Button[width, height];
         }
 
-        public void GenerateButtonForTile(Position location, Tile tile)
+        public void GenerateButtonForTile(Point location, Tile tile)
         {
             int size = 40;
             Button button = new Button();
@@ -89,43 +85,36 @@ namespace miinaharava
 
         public void FlagTile(Tile tile)
         {
-            Button button = buttons[tile.Location.X, tile.Location.Y];
             if (tile.IsFlagged)
             {
-                button.BackColor = defaultButtonColor;
+                tile.Button.BackColor = defaultButtonColor;
                 tile.IsFlagged = false;
             }
             else
             {
-                button.BackColor = flagColor;
+                tile.Button.BackColor = flagColor;
                 tile.IsFlagged = true;
             }
         }
 
-        public void SetSize(int width, int height)
-        {
-            Size = new Size(width, height);
-        }
-
         public void RevealTileToPlayer(Tile tile, int adjacentMinesCount, bool isMine)
         {
-            Button button = buttons[tile.Location.X, tile.Location.Y];
             if (isMine)
             {
-                button.BackColor = Color.Black;
+                tile.Button.BackColor = Color.Black;
             }
             else
             {
                 if (adjacentMinesCount == 0)
                 {
-                    button.BackColor = Color.LightGray;
+                    tile.Button.BackColor = Color.LightGray;
                 }
                 else
                 {
-                    button.Text = adjacentMinesCount.ToString();
+                    tile.Button.Text = adjacentMinesCount.ToString();
                 }
             }
-            button.Refresh();
+            tile.Button.Refresh();
         }
 
         public void SetMainMenuVisibility(bool visible)
@@ -161,9 +150,5 @@ namespace miinaharava
             }
         }
 
-        private Button ButtonOnPosition(Point location)
-        {
-            return buttons[location.X, location.Y];
-        }
     }
 }

@@ -1,8 +1,7 @@
+using miinaharava.Model;
 using miinaharava.Presenter;
 using System.Windows.Forms.Integration;
-using WPFUI;
-using Common.Interfaces;
-using miinaharava.Model;
+using Common;
 using WPFUI;
 
 namespace miinaharava
@@ -19,24 +18,21 @@ namespace miinaharava
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             MiinaharavaView view = new MiinaharavaView();
-            IMainMenu mainMenu = new MainMenu();
-            IGameboard gameboard = new GameboardPage();
-            //IMainMenu mainMenu = view;
-            //IGameboard gameboard = view;
+            //IMainMenu mainMenu = new MainMenu();
+            IMainMenu mainMenu = view;
 
             MiinaharavaPresenter presenter = new MiinaharavaPresenter();
-            IModel model = new MiinaharavaModel();
+            MiinaharavaModel model = new MiinaharavaModel();
             view.Presenter = presenter;
             presenter.MainMenu = mainMenu;
-            presenter.Gameboard = gameboard;
             presenter.View = view;
             presenter.Model = model;
             model.Presenter = presenter;
 
             presenter.Initialize();
-            var aa = new MiinaharavaWPFUI(mainMenu, gameboard);
-            aa.ShowDialog();
-            //Application.Run(view);
+            //var aa = new MiinaharavaWPFUI(mainMenu);
+            //aa.ShowDialog();
+            Application.Run(view);
         }
     }
 }

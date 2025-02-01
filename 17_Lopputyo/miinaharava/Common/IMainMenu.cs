@@ -1,10 +1,7 @@
-﻿using Common.Data;
-
-namespace Common.Interfaces
+﻿namespace Common
 {
     public interface IMainMenu
     {
         event Action<MapSizes> GameStarted;
-        public void OpenGameboard();
     }
 }
