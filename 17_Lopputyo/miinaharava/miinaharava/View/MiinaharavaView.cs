@@ -6,22 +6,22 @@ using WPFUI;
 
 namespace miinaharava
 {
-    public partial class MiinaharavaView : Form, IMainMenu
+    public partial class MiinaharavaView : Form
     {
         Color defaultButtonColor = Color.LightGreen;
         Color buttonHighlightColor = Color.LightGray;
         Color flagColor = Color.LightPink;
-        private MapSizes _mapSize;
+        public MapSizes mapSize { get; private set; }
         public MiinaharavaPresenter Presenter;
 
-        public event Action<MapSizes> GameStarted;
+        public event Action GameStarted;
         public MiinaharavaView()
         {
             InitializeComponent();
             btnMapSizeClick(btnMapSizeSmall, EventArgs.Empty);
-
+    
         }
-
+        
 
         public void TileClicked(object sender, MouseEventArgs e, Tile tile)
         {
@@ -46,20 +46,20 @@ namespace miinaharava
             switch (btn.Name)
             {
                 case "btnMapSizeSmall":
-                    _mapSize = MapSizes.Small;
+                    mapSize = MapSizes.Small;
 
                     break;
                 case "btnMapSizeMedium":
-                    _mapSize = MapSizes.Medium;
+                    mapSize = MapSizes.Medium;
                     break;
                 case "btnMapSizeLarge":
-                    _mapSize = MapSizes.Large;
+                    mapSize = MapSizes.Large;
                     break;
             }
         }
         private void btnStartGame_Click(object sender, EventArgs e)
         {
-            GameStarted(_mapSize);
+            GameStarted();
         }
 
         public void FlagTile(Tile tile)
@@ -111,6 +111,11 @@ namespace miinaharava
             buttonToHighlight.BackColor = buttonHighlightColor;
         }
 
+        private void MiinaharavaView_Load(object sender, EventArgs e)
+        {
+            GameStarted += Presenter.StartGame;
+        }
+
         public void ShowStats(int minutes, int seconds, bool win)
         {
             labelMinutes.Text = minutes.ToString("D2");
@@ -129,5 +134,9 @@ namespace miinaharava
             }
         }
 
+        private void labelSeconds_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -13,22 +13,15 @@ namespace miinaharava.Presenter
     public class MiinaharavaPresenter
     {
         public MiinaharavaView View;
-        public IMainMenu MainMenu;
         public MiinaharavaModel Model;
         Stopwatch timer = new Stopwatch();
 
         bool _firstReveal = true;
-
-        public void Initialize()
+        public void StartGame()
         {
-            MainMenu.GameStarted += StartGame;
-        }
-
-        public void StartGame(MapSizes mapSize)
-        {
-            var wpfWindow = new MiinaharavaWPFUI();
-            wpfWindow.Show();
-            Model.GenerateMap(MapData.Size[mapSize]);
+            var wpfwindow = new MiinaharavaWPFUI();
+            wpfwindow.Show();
+            Model.GenerateMap(MapData.Size[View.mapSize]);
             timer.Start();
         }
 

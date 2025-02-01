@@ -10,7 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WPFUI\WPFUI.csproj" />
+    <Reference Include="WPFUI">
+      <HintPath>..\WPFUI\bin\Debug\net6.0-windows\WPFUI.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
