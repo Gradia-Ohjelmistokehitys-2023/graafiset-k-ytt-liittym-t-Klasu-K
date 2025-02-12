@@ -1,5 +1,7 @@
 # Miinaharava – Graafiset käyttöliittymät -kurssin lopputyö
 
+https://github.com/user-attachments/assets/19c031bb-ae06-4bd3-8b94-ebdc8ba1634b
+
 ## Projektin kuvaus
 Tämä on kurssin *Graafiset käyttöliittymät* lopputyö, jossa toteutin klassisen **Miinaharava-pelin** käyttäen **WinForms** GUI:ta. Projekti on rakennettu **Model-View-Presenter (MVP)** -arkkitehtuurimallin mukaisesti, keskittyen selkeään ja helposti ylläpidettävään koodiin.
 
@@ -19,10 +21,13 @@ Tämä on kurssin *Graafiset käyttöliittymät* lopputyö, jossa toteutin klass
 - Ensimmäinen avaus avaa suuremman alueen.
 
 ## Kehitysmahdollisuudet
-- **Ulkoasun parannus** – Ulkoasu näyttää hirveltä, sillä keskityin enemmän toiminnallisuuteen.  
+- **Ulkoasun parannus** – Ulkoasu näyttää hirveältä, sillä keskityin enemmän toiminnallisuuteen.  
 - **Siirtyminen WPF:ään** – Tämä jäi kesken, mutta olisi hyvä testi siitä kuinka hyvin olen eriyttänyt "View:in" MVP arkkitehtuurin mukaan. Suurimmaksi puutteeksi eriyttämisessä huomasin sen, että määrittelin Model-osiossa WinForms-sidonnaiset napit, kun olisin voinut tehdä sen esimerkiksi luomalla oman nappi luokan tai rajapinnan.
 
 ## Teknologiat ja työkalut
 - **Kieli:** C#
 - **UI-framework:** WinForms
 - **Arkkitehtuuri:** MVP (Model-View-Presenter)
+
+
+
