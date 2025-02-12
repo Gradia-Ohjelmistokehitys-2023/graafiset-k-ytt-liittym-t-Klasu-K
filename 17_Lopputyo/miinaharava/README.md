@@ -1,12 +1,28 @@
-> ### !!!
-> repositorion viimeisimmät kommitit on revertattu, sillä WinFormssin vaihtaminen WPF:ään harjoituksen vuoksi jäi kesken, joten niiden kommittien muutokset eivät olleet merkittäviä enkä aio jatkaa sitä enää.
+# Miinaharava – Graafiset käyttöliittymät -kurssin lopputyö
 
-# Kurssin Graafiset käyttöliittymät lopputyö
+## Projektin kuvaus
+Tämä on kurssin *Graafiset käyttöliittymät* lopputyö, jossa toteutin klassisen **Miinaharava-pelin** käyttäen **WinForms** GUI:ta. Projekti on rakennettu **Model-View-Presenter (MVP)** -arkkitehtuurimallin mukaisesti, keskittyen selkeään ja helposti ylläpidettävään koodiin.
 
-### Tavoite
-Ohjelmoida miinaharava käyttäen WinFormssia graafisen käyttöliittymän toteuttamiseen ja rakentaa projekti Model-View-Presenter Arkkitehtuuri mallin mukaisesti, pyrkien mahdollisimman selkeään koodiin.
+> **⚠️ HUOM!**  
+> Repositorion viimeisimmät kommitit on revertattu, koska testasin siirtyä WPF:ään harjoituksen vuoksi, mutta muutos jäi kesken kurssin päättyessä, joten päätin pysyä alkuperäisessä WinForms-versiossa.
 
-### Lopputulos
-Miinaharava toimii halutulla tavalla, ja siinä on kaikki perusominaisuudet, kuten ruutujen merkkaus ja avaaminen, kentän koon valitseminen, sekä suuremman alueen avaava ensimmäinen avaus. En myöskään ole onnistunut törmäämään vielä yhteenkään bugiin pelissä.
+## Tavoitteet
+- Toteuttaa täysin toimiva Miinaharava-peli.
+- Noudattaa **MVP-arkkitehtuuria** rakenteen selkeyttämiseksi.
+- Toteuttaa kaikki perusominaisuudet, kuten ruutujen avaaminen ja merkitseminen.
+- Tehdä pelistä mahdollisimman bugiton ja vakaa.
 
-Tällä hetkellä suurin puutos pelissä, on sen ruma ulkoasu, mikä johtuu pelkään toiminnallisuutten keskittymisestä projektia tehdessäni.
+## Ominaisuudet
+- Ruutujen avaaminen ja miinojen paljastaminen.  
+- Ruutujen merkitseminen lipulla.  
+- Kentän koon valinta ennen pelin alkua.  
+- Ensimmäinen avaus avaa suuremman alueen.
+
+## Kehitysmahdollisuudet
+- **Ulkoasun parannus** – Ulkoasu näyttää hirveltä, sillä keskityin enemmän toiminnallisuuteen.  
+- **Siirtyminen WPF:ään** – Tämä jäi kesken, mutta olisi hyvä testi siitä kuinka hyvin olen eriyttänyt "View:in" MVP arkkitehtuurin mukaan. Suurimmaksi puutteeksi eriyttämisessä huomasin sen, että määrittelin Model-osiossa WinForms-sidonnaiset napit, kun olisin voinut tehdä sen esimerkiksi luomalla oman nappi luokan tai rajapinnan.
+
+## Teknologiat ja työkalut
+- **Kieli:** C#
+- **UI-framework:** WinForms
+- **Arkkitehtuuri:** MVP (Model-View-Presenter)
